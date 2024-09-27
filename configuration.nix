@@ -13,10 +13,10 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  
   users.users.icaka = {
-	shell = pkgs.fish;
-	extraGroups = ["wheel" "audio" "bluetooth"]
+  isNormalUser = true;
+	extraGroups = ["wheel" "audio" "bluetooth"];
   };
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -29,7 +29,7 @@
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
 
-
+  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05"; # Did you read the comment?
 }
 
