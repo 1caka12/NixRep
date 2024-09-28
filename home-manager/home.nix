@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
-
+let 
+    nixvim = import (builtins.fetchGit {
+        url = "https://github.com/nix-community/nixvim/nixos-24.05";});
+in
 {
+  imports = [nixvim.homeManagerModules.nixvim];
   home.username = "icaka";
   home.stateVersion = "24.05";
 
@@ -51,5 +55,4 @@
   };
 
   programs.kitty.enable = true;
-  programs.home-manager.enable = true;
 }
