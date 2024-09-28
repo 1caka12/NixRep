@@ -12,7 +12,6 @@
     glow
     lsof
     htop
-    hyprland
     wofi
     vscode
     jetbrains.clion
@@ -21,6 +20,7 @@
     ranger
     zoxide
     lazygit
+    networkmanager
   ];
 
   programs.git = {
@@ -28,7 +28,9 @@
     userName = "Ivo";
     userEmail = "i.matsaliev@student.vu.nl";
   };
-
+  programs.neovim = {
+    enable = true;
+  };
   programs.fish = {
     enable = true;
   };

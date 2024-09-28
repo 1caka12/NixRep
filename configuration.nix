@@ -16,7 +16,7 @@
   
   users.users.icaka = {
   isNormalUser = true;
-	extraGroups = ["wheel" "audio" "bluetooth"];
+	extraGroups = ["wheel" "audio" "bluetooth" "networkmanager"];
   };
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -29,6 +29,10 @@
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
 
+  # Network Stuff
+  networking.networkmanager.enable = true;
+
+  # Stuff
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05"; # Did you read the comment?
 }
