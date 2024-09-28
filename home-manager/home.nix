@@ -12,7 +12,7 @@
     glow
     lsof
     htop
-    wofi
+    rofi-wayland
     vscode
     jetbrains.clion
     kdeconnect
