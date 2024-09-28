@@ -21,6 +21,7 @@
     zoxide
     lazygit
     networkmanager
+    nerdfonts
   ];
 
   wayland.windowManager.hyprland.settings = {
