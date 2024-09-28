@@ -1,6 +1,5 @@
-{ config, pkgs, ... }:
+outputs { config, pkgs, ... }:
 {
-#  imports = [nixvim.homeManagerModules.nixvim];
   home.username = "icaka";
   home.stateVersion = "24.05";
 
@@ -22,6 +21,7 @@
     lazygit
     networkmanager
     nerdfonts
+    tmux
   ];
 
   wayland.windowManager.hyprland.settings = {
@@ -34,6 +34,14 @@
   };
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [
+	nvim-lspconfig
+	nvim-treesitter.withAllGrammars
+	catppuccin-nvim
+	nvim-cmp
+	telescope-nvim
+    ];
   };
   programs.fish = {
     enable = true;
@@ -53,6 +61,5 @@
   programs.kitty.enable = true;
   programs.nixvim = {
      enable = true;
-     colorschemes.catppuccing.enable = true;
   };
-}
+};
