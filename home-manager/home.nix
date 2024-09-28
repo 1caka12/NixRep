@@ -24,6 +24,7 @@
     nerdfonts
     fzf
     tmux
+    pavucontrol
   ];
 
   wayland.windowManager.hyprland.settings = {
@@ -52,6 +53,5 @@
   programs.neovim = { 
      enable = true;
   };
-  programs.nixvim.enable = true;
   programs.kitty.enable = true;
 }
