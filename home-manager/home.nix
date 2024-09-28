@@ -1,5 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixvim, ... }:
 {
+  imports = [nixvim.homeManagerModules.nixvim];
   home.username = "icaka";
   home.stateVersion = "24.05";
   
@@ -21,6 +22,7 @@
     lazygit
     networkmanager
     nerdfonts
+    fzf
     tmux
   ];
 
@@ -34,35 +36,8 @@
   };
   programs.fish = {
     enable = true;
+
   };
- programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-
-    # Plugins managed by Home Manager (Nix)
-    plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig          # LSP plugin
-      nvim-treesitter          # Treesitter for syntax highlighting
-      telescope-nvim           # Telescope for fuzzy finding
-    ];
-
-    # Neovim Lua configuration
-    extraConfig = ''
-      -- Treesitter configuration
-      require('nvim-treesitter.configs').setup {
-        highlight = {
-          enable = true,      -- Enable syntax highlighting
-        },
-      }
-
-      -- Telescope setup
-      require('telescope').setup{}
-
-      -- Keybindings for Telescope
-      vim.api.nvim_set_keymap('n', '<leader>ff', [[<cmd>Telescope find_files<CR>]], { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '<leader>fg', [[<cmd>Telescope live_grep<CR>]], { noremap = true, silent = true })
-    '';
-  };  
   programs.firefox.enable = true;
   programs.starship = {
     enable = true;
@@ -74,6 +49,9 @@
       line_break.disabled = true;
     };
   };
-
+  programs.neovim = { 
+     enable = true;
+  };
+  programs.nixvim.enable = true;
   programs.kitty.enable = true;
 }
