@@ -1,6 +1,5 @@
-{ config, pkgs, nixvim, ... }:
+{ config, pkgs, inputs, ... }:
 {
-  imports = [nixvim.homeManagerModules.nixvim];
   home.username = "icaka";
   home.stateVersion = "24.05";
   
