@@ -31,6 +31,10 @@
 
   # Network Stuff
   networking.networkmanager.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   # Stuff
   nixpkgs.config.allowUnfree = true;
