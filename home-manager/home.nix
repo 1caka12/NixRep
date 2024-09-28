@@ -51,4 +51,8 @@
   };
 
   programs.kitty.enable = true;
+  programs.nixvim = {
+     enable = true;
+     colorschemes.catppuccing.enable = true;
+  };
 }
