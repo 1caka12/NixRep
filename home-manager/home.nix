@@ -1,4 +1,4 @@
-outputs { config, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   home.username = "icaka";
   home.stateVersion = "24.05";
@@ -59,7 +59,4 @@ outputs { config, pkgs, ... }:
   };
 
   programs.kitty.enable = true;
-  programs.nixvim = {
-     enable = true;
-  };
-};
+}
