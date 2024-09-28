@@ -2,7 +2,7 @@
 {
   home.username = "icaka";
   home.stateVersion = "24.05";
-
+  
   home.packages = with pkgs; [
     neofetch
     eza

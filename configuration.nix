@@ -13,7 +13,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+  time.timeZone = "Europe/Amsterdam";  
   users.users.icaka = {
   isNormalUser = true;
 	extraGroups = ["wheel" "audio" "bluetooth" "networkmanager"];
