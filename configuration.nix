@@ -17,9 +17,12 @@
   users.users.icaka = {
   isNormalUser = true;
 	extraGroups = ["wheel" "audio" "bluetooth" "networkmanager"];
+	shell = pkgs.fish;
   };
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  # Shell stuff
+  programs.fish.enable = true;
   # Bluetooth stuff
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
