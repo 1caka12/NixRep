@@ -50,10 +50,43 @@
     };
   };
   programs.nixvim = {
-     enable = true;
-     colorschemes.catppuccin = {
-	enable = true;
-     };
-  };
+    enable = true;
+    colorschemes.catppuccin = {
+        enable = true;
+    };
+    globalOpts = {
+        number = true;
+        relativenumber = true;
+        signcolumn = "true";
+        tabstop = 4;
+        shiftwidth = 4;
+        expandtab = true;
+        smarttab = true;
+        clipboard = "unnamedplus";
+        cursorline = true;
+    };
+     plugins = {
+        lualine.enable = true;
+        treesitter.enable = true;
+        lazygit.enable = true;
+        luasnip.enable = true;
+        gitsigns.enable = true;
+        telescope.enable = true;
+        todo-comments = {
+            enable = true;
+            colors = {
+                error = ["DiagnosticError" "ErrorMsg" "#DC2626"];
+                warning = ["DiagnosticWarn" "WarningMsg" "#FBBF24"];
+                info = ["DiagnosticInfo" "#2563EB"];
+                hint = ["DiagnosticHint" "#10B981"];
+                default = ["Identifier" "#7C3AED"];
+                test = ["Identifier" "#FF00FF"];
+            };
+       };
+       lsp = {
+	   servers.clangd.enable = true;
+       };     
+    };
+};
   programs.kitty.enable = true;
 }
