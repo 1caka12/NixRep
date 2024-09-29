@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, nixvim,... }:
 {
   home.username = "icaka";
   home.stateVersion = "24.05";
@@ -49,8 +49,11 @@
       line_break.disabled = true;
     };
   };
-  programs.neovim = { 
+  programs.nixvim = {
      enable = true;
+     colorschemes.catppuccin = {
+	enable = true;
+     };
   };
   programs.kitty.enable = true;
 }
