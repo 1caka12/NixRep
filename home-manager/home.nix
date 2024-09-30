@@ -24,6 +24,7 @@
     fzf
     pavucontrol
     man-pages
+    discord
   ];
 
   wayland.windowManager.hyprland.settings = {
