@@ -5,42 +5,42 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
+    imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  time.timeZone = "Europe/Amsterdam";  
-  users.users.icaka = {
-  isNormalUser = true;
-	extraGroups = ["wheel" "audio" "bluetooth" "networkmanager"];
-	shell = pkgs.fish;
-  };
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+    # Use the systemd-boot EFI boot loader.
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
+    time.timeZone = "Europe/Amsterdam";  
+    users.users.icaka = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "audio" "bluetooth" "networkmanager"];
+    shell = pkgs.fish;
+    };
+    nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Shell stuff
-  programs.fish.enable = true;
-  # Bluetooth stuff
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
-  
-  # Audio stuff
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;
+    # Shell stuff
+    programs.fish.enable = true;
+    # Bluetooth stuff
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
+    services.blueman.enable = true;
 
-  # Network Stuff
-  networking.networkmanager.enable = true;
-  programs.hyprland = {
+    # Audio stuff
+    hardware.pulseaudio.enable = true;
+    hardware.pulseaudio.support32Bit = true;
+
+    # Network Stuff
+    networking.networkmanager.enable = true;
+    programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-  };
-
-  # Stuff
-  nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "24.05"; # Did you read the comment?
+    };
+    virtualisation.docker.enable = true;
+    # Stuff
+    nixpkgs.config.allowUnfree = true;
+    system.stateVersion = "24.05"; # Did you read the comment?
 }
 
