@@ -48,6 +48,8 @@
         set-option -g prefix C-Space
         bind-key C-Space send-prefix
         set -g status-position top
+        set -sg escape-time 0
+        set -g base-index 1
     ";
   };
   programs.firefox.enable = true;
