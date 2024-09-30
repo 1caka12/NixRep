@@ -23,6 +23,7 @@
     nerdfonts
     fzf
     pavucontrol
+    man-pages
   ];
 
   wayland.windowManager.hyprland.settings = {
