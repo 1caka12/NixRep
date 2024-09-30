@@ -77,7 +77,7 @@
         clipboard = "unnamedplus";
         cursorline = true;
     };
-     plugins = {
+    plugins = {
         lualine.enable = true;
         treesitter.enable = true;
         lazygit.enable = true;
@@ -95,11 +95,10 @@
                 test = ["Identifier" "#FF00FF"];
             };
        };
-       lsp = {
+        lsp = {
+           enable = true;
            servers.clangd.enable = true;
        };     
-
-           cmp-emoji = {enable = true;};
         cmp = {
           enable = true;
           settings = {
@@ -114,7 +113,9 @@
             formatting = {fields = ["kind" "abbr" "menu"];};
             sources = [
               {name = "git";}
-              {name = "nvim_lsp";}
+              {name = "nvim_lsp";
+               keywordLength = 3;
+              }
               {name = "emoji";}
               {
                 name = "buffer"; # text within current buffer
@@ -132,20 +133,19 @@
             ];
 
             window = {
-              completion = {border = "solid";};
-              documentation = {border = "solid";};
+              completion = {border = "shadow";};
+              documentation = {border = "rounded";};
             };
 
             mapping = {
-              "<C-Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-              "<C-j>" = "cmp.mapping.select_next_item()";
-              "<C-k>" = "cmp.mapping.select_prev_item()";
+              "<Down>" = "cmp.mapping.select_next_item()";
+              "<Tab>" = "cmp.mapping.select_next_item()";
+              "<Up>" = "cmp.mapping.select_prev_item()";
               "<C-e>" = "cmp.mapping.abort()";
-              "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-              "<C-f>" = "cmp.mapping.scroll_docs(4)";
-              "<C-Space>" = "cmp.mapping.complete()";
-              "<C-CR>" = "cmp.mapping.confirm({ select = true })";
-              "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+              "<C-Up>" = "cmp.mapping.scroll_docs(-4)";
+              "<C-Down>" = "cmp.mapping.scroll_docs(4)";
+              "<CR>" = "cmp.mapping.confirm({select=false})";
+              "<C-y>" = "cmp.mapping.confirm({select=true})";
             };
           };
         };
