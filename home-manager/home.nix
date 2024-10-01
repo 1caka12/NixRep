@@ -25,6 +25,8 @@
     pavucontrol
     man-pages
     discord
+    wl-clipboard
+
   ];
 
   wayland.windowManager.hyprland.settings = {
@@ -70,6 +72,7 @@
     colorschemes.catppuccin = {
         enable = true;
     };
+    opts.clipboard.providers.wl-copy.enable = true;
     globalOpts = {
         number = true;
         relativenumber = true;
@@ -77,8 +80,8 @@
         tabstop = 4;
         shiftwidth = 4;
         expandtab = true;
-        smarttab = true;
         clipboard = "unnamedplus";
+        smarttab = true;
         cursorline = true;
     };
     plugins = {
