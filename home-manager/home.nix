@@ -26,7 +26,6 @@
     man-pages
     discord
     wl-clipboard
-
   ];
 
   wayland.windowManager.hyprland.settings = {

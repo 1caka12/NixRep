@@ -39,8 +39,20 @@
     xwayland.enable = true;
     };
     virtualisation.docker.enable = true;
+    # Graphics
+    hardware.opengl = {
+        enable = true;
+    };
+    services.xserver.videoDrivers = ["nvidia"];
+    hardware.nvidia = { 
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        modesetting.enable = true;
+        nvidiaSettings = true;
+    };
+
     # Stuff
     nixpkgs.config.allowUnfree = true;
+    programs.steam.enable = true;
     system.stateVersion = "24.05"; # Did you read the comment?
 }
 
