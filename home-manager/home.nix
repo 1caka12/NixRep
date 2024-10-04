@@ -26,6 +26,8 @@
     man-pages
     discord
     wl-clipboard
+    hyprshot
+    wireshark
   ];
 
   wayland.windowManager.hyprland.settings = {
@@ -89,7 +91,13 @@
         lazygit.enable = true;
         luasnip.enable = true;
         gitsigns.enable = true;
-        telescope.enable = true;
+        telescope = {
+            enable = true;
+            keymaps = {
+                "<Space>ff" = "find_files";
+                "<Space>fg" = "live_grep";
+            };
+        };
         todo-comments = {
             enable = true;
             colors = {
@@ -104,6 +112,7 @@
         lsp = {
            enable = true;
            servers.clangd.enable = true;
+           servers.hls.enable = true;
        };     
         cmp = {
           enable = true;

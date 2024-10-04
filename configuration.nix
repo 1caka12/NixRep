@@ -35,11 +35,12 @@
     # Network Stuff
     networking.networkmanager.enable = true;
     programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+        enable = true;
+        xwayland.enable = true;
     };
     virtualisation.docker.enable = true;
     # Graphics
+    programs.light.enable = true;
     hardware.opengl = {
         enable = true;
     };
