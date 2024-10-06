@@ -33,6 +33,10 @@
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
   };
+  programs.ssh = {
+    enable = true;
+#    useAgent = true;
+  };
   programs.git = {
     enable = true;
     userName = "Ivo";
@@ -91,6 +95,8 @@
         lazygit.enable = true;
         luasnip.enable = true;
         gitsigns.enable = true;
+#        vim-surround.enable = true;
+        noice.enable = true;
         telescope = {
             enable = true;
             keymaps = {
