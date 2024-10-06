@@ -95,7 +95,7 @@
         lazygit.enable = true;
         luasnip.enable = true;
         gitsigns.enable = true;
-#        vim-surround.enable = true;
+        #nvim-surround.enable = true;
         noice.enable = true;
         telescope = {
             enable = true;
