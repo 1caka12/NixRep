@@ -119,6 +119,7 @@
            enable = true;
            servers.clangd.enable = true;
            servers.hls.enable = true;
+           servers.pylsp.enable = true;
        };     
         cmp = {
           enable = true;
