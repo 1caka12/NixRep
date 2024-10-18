@@ -28,6 +28,7 @@
     wl-clipboard
     hyprshot
     wireshark
+    vesktop
   ];
 
   wayland.windowManager.hyprland.settings = {

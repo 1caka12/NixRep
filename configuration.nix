@@ -29,8 +29,8 @@
     services.blueman.enable = true;
 
     # Audio stuff
-    hardware.pulseaudio.enable = true;
-    hardware.pulseaudio.support32Bit = true;
+    #hardware.pulseaudio.enable = true;
+    #hardware.pulseaudio.support32Bit = true;
 
     # Network Stuff
     networking.networkmanager.enable = true;
@@ -49,6 +49,12 @@
         package = config.boot.kernelPackages.nvidiaPackages.stable;
         modesetting.enable = true;
         nvidiaSettings = true;
+    };
+
+    # Screenshare
+    services.pipewire = {
+        enable = true;
+        pulse.enable = true;
     };
 
     # Stuff
