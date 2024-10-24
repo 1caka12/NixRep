@@ -34,32 +34,14 @@
     imports = [
         ./nixvim
         ./tmux
+        ./git
+        ./starship
+        ./hyprland
     ];
-  wayland.windowManager.hyprland.settings = {
-    "$mod" = "SUPER";
-  };
 
-  programs.ssh = {
-    enable = true;
-  };
 
-  programs.git = {
-    enable = true;
-    userName = "Ivo";
-    userEmail = "i.matsaliev@student.vu.nl";
-  };
-  programs.fish = {
-    enable = true;
-  };
+    programs.ssh.enable = true;
+    programs.fish.enable = true;
     programs.firefox.enable = true;
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = false;
-      aws.disabled = true;
-      gcloud.disabled = true;
-      line_break.disabled = true;
-    };
-  };
-  programs.kitty.enable = true;
+    programs.kitty.enable = true;
 }

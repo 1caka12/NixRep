@@ -35,6 +35,7 @@
     programs.hyprland = {
         enable = true;
         xwayland.enable = true;
+        configFile = ./home-manager/hyprland/hyprland.conf;
     };
 
     # VM Stuff
