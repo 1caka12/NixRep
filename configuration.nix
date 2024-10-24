@@ -14,23 +14,21 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     time.timeZone = "Europe/Amsterdam";  
-    users.users.icaka = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "audio" "bluetooth" "networkmanager"];
-    shell = pkgs.fish;
-    };
-    nix.settings.experimental-features = ["nix-command" "flakes"];
 
+    users.users.icaka = {
+        isNormalUser = true;
+        extraGroups = ["wheel" "audio" "bluetooth" "networkmanager" "video"];
+        shell = pkgs.fish;
+    };
+
+    nix.settings.experimental-features = ["nix-command" "flakes"];
     # Shell stuff
     programs.fish.enable = true;
+
     # Bluetooth stuff
     hardware.bluetooth.enable = true;
     hardware.bluetooth.powerOnBoot = true;
     services.blueman.enable = true;
-
-    # Audio stuff
-    #hardware.pulseaudio.enable = true;
-    #hardware.pulseaudio.support32Bit = true;
 
     # Network Stuff
     networking.networkmanager.enable = true;
@@ -38,24 +36,31 @@
         enable = true;
         xwayland.enable = true;
     };
+
+    # VM Stuff
     virtualisation.docker.enable = true;
-    # Graphics
-    programs.light.enable = true;
+
+    # Graphics Stuff
     hardware.opengl = {
         enable = true;
     };
+
     services.xserver.videoDrivers = ["nvidia"];
+    
     hardware.nvidia = { 
         package = config.boot.kernelPackages.nvidiaPackages.stable;
         modesetting.enable = true;
         nvidiaSettings = true;
     };
 
-    # Screenshare
+    # Screenshare + audioshare
     services.pipewire = {
         enable = true;
         pulse.enable = true;
     };
+
+    # Light stuff
+    programs.light.enable = true;
 
     # Stuff
     nixpkgs.config.allowUnfree = true;

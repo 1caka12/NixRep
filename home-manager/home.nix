@@ -28,16 +28,18 @@
     wl-clipboard
     hyprshot
     wireshark
-    vesktop
+    eww
+    hyprshade
   ];
 
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
   };
+
   programs.ssh = {
     enable = true;
-#    useAgent = true;
   };
+
   programs.git = {
     enable = true;
     userName = "Ivo";
@@ -65,7 +67,6 @@
   programs.firefox.enable = true;
   programs.starship = {
     enable = true;
-    # custom settings
     settings = {
       add_newline = false;
       aws.disabled = true;
@@ -73,6 +74,7 @@
       line_break.disabled = true;
     };
   };
+
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin = {
