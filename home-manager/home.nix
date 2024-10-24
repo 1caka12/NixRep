@@ -120,9 +120,12 @@
        };
         lsp = {
            enable = true;
-           servers.clangd.enable = true;
-           servers.hls.enable = true;
-           servers.pylsp.enable = true;
+           servers = {
+                clangd.enable = true;
+                hls.enable = true;
+                pylsp.enable = true;
+                nil_ls.enable = true;
+           };
        };     
         cmp = {
           enable = true;
