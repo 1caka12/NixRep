@@ -1,42 +1,31 @@
 { pkgs,... }:
 {
-  home.username = "icaka";
-  home.stateVersion = "24.05";
-  
-  home.packages = with pkgs; [
-    neofetch
-    eza
-    zip
-    unzip
-    glow
-    lsof
-    htop
-    rofi-wayland
-    vscode
-    jetbrains.clion
-    kdeconnect
-    fish
-    yazi
-    zoxide
-    lazygit
-    networkmanager
-    nerdfonts
-    fzf
-    pavucontrol
-    man-pages
-    discord
-    wl-clipboard
-    hyprshot
-    wireshark
-    eww
-    hyprshade
-  ];
+    home.username = "icaka";
+    home.stateVersion = "24.05";
+
+    home.packages = with pkgs; [
+        # cli
+        eza zip unzip
+        fish fzf glow
+        htop lsof neofetch
+        yazi zoxide lazygit
+        networkmanager wl-clipboard
+        # apps
+        rofi-wayland kdeconnect
+        eww pavucontrol hyprshot
+        hyprshade wireshark
+        # fonts
+        nerdfonts
+        # stuff
+        man-pages
+    ];
     imports = [
         ./nixvim
         ./tmux
         ./git
         ./starship
         ./hyprland
+        ./eww
     ];
 
 
