@@ -19,17 +19,24 @@
               :run-while time-visible   
   `date +%H:%M`)
 
-(defwidget bar [] 
-    (box :orientation "horizontal"
-         :halign "top right"
-         :spacing 5
-         time
-         (battery)
-         (mem)
-         (audio)))
+(defvar isHovered false)
+
+(defwidget bar []
+    (box :spacing 5
+         :orientation "h"
+         (eventbox :onhover "eww update isHovered=true"
+                   :onhoverlost "eww update isHovered=false"
+                   (box :orientation "horizontal" 
+                        time
+                        (revealer :transition "slideleft"
+                                  :reveal isHovered
+                                  (box
+                                     (battery)
+                                     (mem)
+                                     (audio)))))))
 
 (defwindow bar_window
            :monitor 0
            :geometry (geometry :anchor "top right")
-           :stacking "bg"
+           :stacking "fg"
   (bar))
