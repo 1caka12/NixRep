@@ -1,12 +1,35 @@
-(defwindow bar
+(defpoll audiovar :interval "1s" `./audio.sh`)
+
+(defwidget audio []
+    (box (label :text "Volume:${audiovar}")))
+
+(defwidget mem []
+    (box 
+        (label :text "Disk: ${round(EWW_DISK["/"].used_perc,0)}%")))
+
+(defpoll batvar :interval "5s" `./bat.sh`)
+
+(defwidget battery [] 
+    (box 
+        (label :text "${batvar}%")))
+
+
+(defpoll time :interval "1s"
+              :initial "initial-value"  
+              :run-while time-visible   
+  `date +%H:%M`)
+
+(defwidget bar [] 
+    (box :orientation "horizontal"
+         :halign "top right"
+         :spacing 5
+         time
+         (battery)
+         (mem)
+         (audio)))
+
+(defwindow bar_window
            :monitor 0
-           :geometry (geometry :x "0%"
-                               :y "20px"
-                               :width "90%"
-                               :height "30px"
-                               :anchor "top center")
-           :stacking "fg"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
-  "example content")
+           :geometry (geometry :anchor "top right")
+           :stacking "bg"
+  (bar))

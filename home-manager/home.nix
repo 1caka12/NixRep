@@ -19,6 +19,7 @@
         # stuff
         man-pages
     ];
+
     imports = [
         ./nixvim
         ./tmux
@@ -27,7 +28,6 @@
         ./hyprland
         ./eww
     ];
-
 
     programs.ssh.enable = true;
     programs.fish.enable = true;
