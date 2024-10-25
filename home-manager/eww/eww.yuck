@@ -11,7 +11,7 @@
 
 (defwidget battery [] 
     (box 
-        (label :text "${batvar}%")))
+        (label :text "Charge: ${batvar}%")))
 
 
 (defpoll time :interval "1s"
