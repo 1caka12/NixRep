@@ -10,14 +10,17 @@
         htop lsof neofetch
         yazi zoxide lazygit
         networkmanager wl-clipboard
+        
         # apps
         rofi-wayland kdeconnect
         eww pavucontrol hyprshot
         hyprshade wireshark
+        
         # fonts
         nerdfonts
-        # stuff
-        man-pages
+        
+        # development
+        man-pages gcc
     ];
 
     imports = [
