@@ -20,7 +20,7 @@
         nerdfonts
         
         # development
-        man-pages gcc
+        man-pages 
     ];
 
     imports = [
