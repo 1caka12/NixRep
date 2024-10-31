@@ -36,7 +36,9 @@
         enable = true;
         xwayland.enable = true;
     };
-    
+
+    services.xserver.windowManager.awesome.enable = true;
+
     # VM Stuff
     virtualisation.docker.enable = true;
 

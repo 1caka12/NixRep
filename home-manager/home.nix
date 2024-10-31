@@ -15,6 +15,7 @@
         rofi-wayland kdeconnect
         eww pavucontrol hyprshot
         hyprshade wireshark hyprlock
+        obsidian
         
         # fonts
         nerdfonts
