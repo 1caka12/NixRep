@@ -13,11 +13,8 @@
     (box 
         (label :text "Charge: ${batvar}%")))
 
-
-(defpoll time :interval "1s"
-              :initial "initial-value"  
-              :run-while time-visible   
-  `date +%H:%M`)
+(defpoll time :interval "10s"
+  "date '+%H:%M %b %d, %Y'")
 
 (defvar isHovered false)
 

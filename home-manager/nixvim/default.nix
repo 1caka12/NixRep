@@ -23,6 +23,7 @@ programs.nixvim = {
         lazygit.enable = true;
         luasnip.enable = true;
         gitsigns.enable = true;
+        cmp-dap.enable = true;
         #nvim-surround.enable = true;
         noice.enable = true;
         telescope = {
