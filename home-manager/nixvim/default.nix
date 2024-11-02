@@ -109,16 +109,16 @@
       cmp_luasnip = {enable = true;}; # snippets
       cmp-cmdline = {enable = false;}; # autocomplete for cmdline
     };
-#    extraPlugins = [
-#      (pkgs.vimUtils.buildVimPlugin {
-#        name = "nvim-java";
-#        src = pkgs.fetchFromGitHub {
-#          owner = "nvim-java";
-#          repo = "nvim-java";
-#          rev = "905013eb83c58bda992724b3ecbe20f60b58513f";
-#          sha256 = "00bj1yq0q7i8p6zn7jqmi3zmkkhqlc62am6srkcf1nydmvmsr1yx";
-#        };
-#      })
-#    ];
+    #    extraPlugins = [
+    #      (pkgs.vimUtils.buildVimPlugin {
+    #        name = "nvim-java";
+    #        src = pkgs.fetchFromGitHub {
+    #          owner = "nvim-java";
+    #          repo = "nvim-java";
+    #          rev = "905013eb83c58bda992724b3ecbe20f60b58513f";
+    #          sha256 = "00bj1yq0q7i8p6zn7jqmi3zmkkhqlc62am6srkcf1nydmvmsr1yx";
+    #        };
+    #      })
+    #    ];
   };
 }

@@ -29,6 +29,7 @@
     wireshark
     hyprlock
     obsidian
+    hyprpaper
 
     # fonts
     nerdfonts
