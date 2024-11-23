@@ -11,7 +11,12 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/icaka/.config/nixos";
+  };
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,7 +27,6 @@
     extraGroups = ["wheel" "audio" "bluetooth" "networkmanager" "video"];
     shell = pkgs.fish;
   };
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Shell stuff
   programs.fish.enable = true;
@@ -38,7 +42,9 @@
     enable = true;
     xwayland.enable = true;
   };
-
+  environment.variables = {
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
   services.xserver.windowManager.awesome.enable = true;
 
   # VM Stuff
@@ -48,8 +54,9 @@
   hardware.opengl = {
     enable = true;
   };
-
-  services.xserver.videoDrivers = ["nvidia"];
+services.xserver.displayManager.sessionCommands = ''
+    ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+'';
 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -71,4 +78,16 @@
   nixpkgs.config.allowUnfree = true;
   programs.steam.enable = true;
   system.stateVersion = "24.05"; # Did you read the comment?
+   services.greetd = {
+    enable = true;
+    vt = 3;
+    settings = {
+      default_session = {
+        user = "icaka";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+      };
+    };
+  };
+  # unlock GPG keyring on login
+  security.pam.services.greetd.enableGnomeKeyring = true;
 }

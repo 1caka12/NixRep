@@ -10,7 +10,7 @@
     fish
     fzf
     glow
-    htop
+    btop
     lsof
     neofetch
     yazi
@@ -30,12 +30,21 @@
     hyprlock
     obsidian
     hyprpaper
+    librewolf
+
+
+    #wallpaper engine
+    swww
+    waypaper
 
     # fonts
     nerdfonts
 
     # development
     man-pages
+
+    #graphics
+    displaylink
   ];
 
   imports = [
