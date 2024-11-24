@@ -30,7 +30,9 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Shell stuff
   programs.fish.enable = true;
-
+  programs.fish.shellAliases = {
+    untar = "tar -xvf";
+  };
   # Bluetooth stuff
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
