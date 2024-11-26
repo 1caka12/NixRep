@@ -29,10 +29,15 @@
   };
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Shell stuff
-  programs.fish.enable = true;
-  programs.fish.shellAliases = {
-    untar = "tar -xvf";
-  };
+  programs.fish = {
+    enable = true;
+    shellInit= ''
+      function untarinto
+        set folder_name (string replace ".tar" "" $argv[1])
+        mkdir -p $folder_name
+        tar -xvf $argv[1] -C $folder_name
+      end
+    '';  };
   # Bluetooth stuff
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

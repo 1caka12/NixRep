@@ -17,6 +17,7 @@
       cursorline = true;
     };
     plugins = {
+      startup.enable = true;
       lualine.enable = true;
       treesitter.enable = true;
       lazygit.enable = true;
