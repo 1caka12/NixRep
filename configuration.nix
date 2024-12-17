@@ -125,6 +125,21 @@
       };
     };
   };
+  # Memory Management
+  
+  systemd.slices."games.slice" = {
+    # This slice will allow up to 10g of ram for games
+    # plus will force higher memory swappinnes (default is 60)
+    # the idea being pages will be swapped out more regularly than usual
+    sliceConfig = {
+        MemoryMax = "9G";
+        CPUQuota = "80%";
+        IOWEight = 200;
+        MemorySwappiness = 80;
+    };
+  };
+  systemd.oomd.enable = true;
+
   # unlock GPG keyring on login
   security.pam.services.greetd.enableGnomeKeyring = true;
 }
