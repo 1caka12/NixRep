@@ -17,7 +17,7 @@
       cursorline = true;
     };
     plugins = {
-      startup.enable = true;
+      markdown-preview.enable = true;
       lualine.enable = true;
       treesitter.enable = true;
       lazygit.enable = true;
@@ -49,7 +49,7 @@
         servers = {
           clangd.enable = true;
           hls.enable = true;
-          pylsp.enable = true;
+          #pylsp.enable = true;
           nil-ls.enable = true;
           java-language-server.enable = true;
         };

@@ -31,7 +31,7 @@
     obsidian
     hyprpaper
     librewolf
-
+    guitarix
 
     #wallpaper engine
     swww
@@ -43,8 +43,6 @@
     # development
     man-pages
 
-    #graphics
-    displaylink
   ];
 
   imports = [

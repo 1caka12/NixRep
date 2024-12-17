@@ -30,7 +30,7 @@
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
-          nixos-hardware.nixosModules.lenovo-ideapad-15ach6
+          #nixos-hardware.nixosModules.lenovo-ideapad-15ach6
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

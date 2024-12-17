@@ -61,21 +61,51 @@
   hardware.opengl = {
     enable = true;
   };
-services.xserver.displayManager.sessionCommands = ''
+  services.xserver.displayManager.sessionCommands = ''
     ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
 '';
 
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true;
     nvidiaSettings = true;
     open = false;
+    prime = {
+        amdgpuBusId = "PCI:6:0:0";
+        nvidiaBusId = "PCI:1:0:0";
+        sync.enable = true;
+    };
+  };
+
+  # Power stuff
+  powerManagement.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 20;
+
+       #Optional helps save long term battery health
+       START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+       STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+
+      };
   };
 
   # Screenshare + audioshare
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
   # Light stuff
@@ -84,7 +114,7 @@ services.xserver.displayManager.sessionCommands = ''
   # Stuff
   nixpkgs.config.allowUnfree = true;
   programs.steam.enable = true;
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; 
    services.greetd = {
     enable = true;
     vt = 3;
