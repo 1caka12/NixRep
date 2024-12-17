@@ -33,6 +33,8 @@
     librewolf
     guitarix
 
+    # system
+    earlyoom
     #wallpaper engine
     swww
     waypaper
