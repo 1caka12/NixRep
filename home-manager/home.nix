@@ -21,7 +21,7 @@
 
     # apps
     rofi-wayland
-    kdeconnect
+    #kdeconnect
     eww
     pavucontrol
     hyprshot

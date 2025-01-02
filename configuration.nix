@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -22,22 +23,26 @@
   boot.loader.efi.canTouchEfiVariables = true;
   time.timeZone = "Europe/Amsterdam";
 
+  # swap
+  swapDevices = [
+    {
+        device = "/swapfile";
+        size = 10 * 1024; #10gib
+    }
+  ];
+
   users.users.icaka = {
     isNormalUser = true;
     extraGroups = ["wheel" "audio" "bluetooth" "networkmanager" "video"];
     shell = pkgs.fish;
   };
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
   # Shell stuff
   programs.fish = {
     enable = true;
-    shellInit= ''
-      function untarinto
-        set folder_name (string replace ".tar" "" $argv[1])
-        mkdir -p $folder_name
-        tar -xvf $argv[1] -C $folder_name
-      end
-    '';  };
+  };
+
   # Bluetooth stuff
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -45,25 +50,51 @@
 
   # Network Stuff
   networking.networkmanager.enable = true;
+  
+  #hyprland+wayland stuff
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+
   environment.variables = {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
-  services.xserver.windowManager.awesome.enable = true;
 
+  #X stuff
+  services.xserver = {
+    enable = true;
+    windowManager.i3.enable = true;
+    
+    displayManager.sessionCommands = ''
+    ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+    '';
+  };
+
+  #Greetd
+  services.greetd = {
+    enable = true;
+    vt = 3;
+    settings = {
+      default_session = {
+        user = "icaka";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+      };
+    };
+  };
   # VM Stuff
   virtualisation.docker.enable = true;
 
   # Graphics Stuff
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
+    extraPackages = with pkgs; [
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+      vulkan-tools
+    ];
   };
-  services.xserver.displayManager.sessionCommands = ''
-    ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
-'';
 
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
@@ -114,31 +145,17 @@
   # Stuff
   nixpkgs.config.allowUnfree = true;
   programs.steam.enable = true;
-  system.stateVersion = "24.05"; 
-   services.greetd = {
-    enable = true;
-    vt = 3;
-    settings = {
-      default_session = {
-        user = "icaka";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
-      };
-    };
-  };
+  system.stateVersion = "24.11"; 
+
   # Memory Management
-  
-  systemd.slices."games.slice" = {
-    # This slice will allow up to 10g of ram for games
-    # plus will force higher memory swappinnes (default is 60)
-    # the idea being pages will be swapped out more regularly than usual
-    sliceConfig = {
-        MemoryMax = "9G";
-        CPUQuota = "80%";
-        IOWEight = 200;
-        MemorySwappiness = 80;
+  services.earlyoom.enable = true;
+  systemd.slices."steam" = {
+    sliceConfig = { 
+        MemoryMax = "8G";      # Limit to 8GB of RAM
+        CPUQuota = "80%";      # Limit CPU usage to 80%
+        IOWeight = 200;        # Set I/O priority weight
     };
-  };
-  systemd.oomd.enable = true;
+};
 
   # unlock GPG keyring on login
   security.pam.services.greetd.enableGnomeKeyring = true;

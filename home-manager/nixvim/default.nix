@@ -17,6 +17,7 @@
       cursorline = true;
     };
     plugins = {
+      web-devicons.enable = true ;
       markdown-preview.enable = true;
       lualine.enable = true;
       treesitter.enable = true;
@@ -35,23 +36,25 @@
       };
       todo-comments = {
         enable = true;
-        colors = {
-          error = ["DiagnosticError" "ErrorMsg" "#DC2626"];
-          warning = ["DiagnosticWarn" "WarningMsg" "#FBBF24"];
-          info = ["DiagnosticInfo" "#2563EB"];
-          hint = ["DiagnosticHint" "#10B981"];
-          default = ["Identifier" "#7C3AED"];
-          test = ["Identifier" "#FF00FF"];
+        settings = {
+            colors = {
+              error = ["DiagnosticError" "ErrorMsg" "#DC2626"];
+              warning = ["DiagnosticWarn" "WarningMsg" "#FBBF24"];
+              info = ["DiagnosticInfo" "#2563EB"];
+              hint = ["DiagnosticHint" "#10B981"];
+              default = ["Identifier" "#7C3AED"];
+              test = ["Identifier" "#FF00FF"];
+            };
         };
       };
       lsp = {
         enable = true;
         servers = {
           clangd.enable = true;
-          hls.enable = true;
           #pylsp.enable = true;
-          nil-ls.enable = true;
-          java-language-server.enable = true;
+          nil_ls.enable = true;
+          java_language_server.enable = true;
+          cmake.enable = true;
         };
       };
       cmp = {
