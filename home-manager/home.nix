@@ -18,6 +18,7 @@
     lazygit
     networkmanager
     wl-clipboard
+    alsa-utils
 
     # apps
     rofi-wayland
