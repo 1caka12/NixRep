@@ -33,6 +33,7 @@
     hyprpaper
     librewolf
     guitarix
+    discord
 
     #wallpaper engine
     swww

@@ -52,8 +52,6 @@
         servers = {
           clangd.enable = true;
           pyright.enable = true;
-          #Doesn't work in nix-shell when importing lark
-          #pylyzer.enable = true;
           nil_ls.enable = true;
           java_language_server.enable = true;
           cmake.enable = true;
