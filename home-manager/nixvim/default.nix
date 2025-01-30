@@ -17,6 +17,7 @@
       cursorline = true;
     };
     plugins = {
+      dap.enable = true;
       web-devicons.enable = true ;
       markdown-preview.enable = true;
       lualine.enable = true;

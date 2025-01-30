@@ -18,7 +18,8 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/icaka/.config/nixos";
   };
-  # Use the systemd-boot EFI boot loader.
+
+   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   time.timeZone = "Europe/Amsterdam";
