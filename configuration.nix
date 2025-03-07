@@ -44,6 +44,10 @@
     enable = true;
   };
 
+  environment.shellAliases = {
+    wifiscan = "nmcli device wifi list --rescan yes";
+  };
+
   # Bluetooth stuff
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -144,6 +148,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     wireplumber.enable = true;
+    jack.enable = true;
   };
 
   # Light stuff
@@ -166,4 +171,10 @@
 
   # unlock GPG keyring on login
   security.pam.services.greetd.enableGnomeKeyring = true;
+
+  # IRC Chats
+  services.bitlbee = {
+    enable = true;
+    plugins = [pkgs.bitlbee-discord];
+  };
 }

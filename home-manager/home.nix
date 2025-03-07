@@ -34,6 +34,9 @@
     librewolf
     guitarix
     discord
+    thunderbird
+    kando
+    guitarix
 
     #wallpaper engine
     swww
