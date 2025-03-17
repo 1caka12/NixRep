@@ -19,6 +19,7 @@
     networkmanager
     wl-clipboard
     alsa-utils
+    hyprpaper
 
     # apps
     rofi-wayland
@@ -30,13 +31,12 @@
     wireshark
     hyprlock
     obsidian
-    hyprpaper
     librewolf
     guitarix
     discord
     thunderbird
     kando
-    guitarix
+    dust
 
     #wallpaper engine
     swww
@@ -47,7 +47,6 @@
 
     # development
     man-pages
-
   ];
 
   imports = [
