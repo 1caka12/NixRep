@@ -8,7 +8,7 @@
     globalOpts = {
       number = true;
       relativenumber = true;
-      signcolumn = "true";
+      signcolumn = "auto";
       tabstop = 4;
       shiftwidth = 4;
       expandtab = true;
@@ -17,6 +17,17 @@
       cursorline = true;
     };
     plugins = {
+      lsp = {
+        enable = true;
+        servers = {
+            clangd.enable = true;
+            pyright.enable = true;
+            nil_ls.enable = true;
+            java_language_server.enable = true;
+            cmake.enable = true;
+            gopls.enable = true;
+          };
+      };
       dap.enable = true;
       web-devicons.enable = true ;
       markdown-preview.enable = true;
@@ -26,7 +37,6 @@
       luasnip.enable = true;
       gitsigns.enable = true;
       cmp-dap.enable = true;
-      #nvim-surround.enable = true;
       noice.enable = true;
       telescope = {
         enable = true;
@@ -46,16 +56,6 @@
               default = ["Identifier" "#7C3AED"];
               test = ["Identifier" "#FF00FF"];
             };
-        };
-      };
-      lsp = {
-        enable = true;
-        servers = {
-          clangd.enable = true;
-          pyright.enable = true;
-          nil_ls.enable = true;
-          java_language_server.enable = true;
-          cmake.enable = true;
         };
       };
       cmp = {

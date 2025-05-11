@@ -64,6 +64,7 @@
 
   environment.variables = {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    NIXOS_OZONE_WL = "1";
   };
 
   #X stuff
@@ -149,6 +150,13 @@
     alsa.support32Bit = true;
     wireplumber.enable = true;
     jack.enable = true;
+  };
+
+  # Wayland GUI stuff
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
   # Light stuff

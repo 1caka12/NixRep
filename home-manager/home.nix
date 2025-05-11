@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.username = "icaka";
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
     # cli
@@ -21,9 +21,11 @@
     alsa-utils
     hyprpaper
 
+    #kdeconnect
+    
     # apps
     rofi-wayland
-    #kdeconnect
+    slack
     eww
     pavucontrol
     hyprshot
@@ -37,16 +39,14 @@
     thunderbird
     kando
     dust
-
     #wallpaper engine
     swww
     waypaper
+    zathura
+    zoom-us
 
     # fonts
     nerdfonts
-
-    # development
-    man-pages
   ];
 
   imports = [
