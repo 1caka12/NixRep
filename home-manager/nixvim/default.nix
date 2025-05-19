@@ -5,17 +5,6 @@
       enable = true;
     };
     opts.clipboard.providers.wl-copy.enable = true;
-    globalOpts = {
-      number = true;
-      relativenumber = true;
-      signcolumn = "auto";
-      tabstop = 4;
-      shiftwidth = 4;
-      expandtab = true;
-      clipboard = "unnamedplus";
-      smarttab = true;
-      cursorline = true;
-    };
     plugins = {
       lsp = {
         enable = true;
@@ -28,6 +17,7 @@
             gopls.enable = true;
           };
       };
+      sleuth.enable = true;
       dap.enable = true;
       web-devicons.enable = true ;
       markdown-preview.enable = true;
@@ -114,6 +104,17 @@
       cmp-path = {enable = true;}; # file system paths
       cmp_luasnip = {enable = true;}; # snippets
       cmp-cmdline = {enable = false;}; # autocomplete for cmdline
+    };
+    globalOpts = {
+      number = true;
+      relativenumber = true;
+      signcolumn = "auto";
+      tabstop = 4;
+      shiftwidth = 4;
+      expandtab = true;
+      clipboard = "unnamedplus";
+      smarttab = true;
+      cursorline = true;
     };
 #        extraPlugins = [
 #          (pkgs.vimUtils.buildVimPlugin {

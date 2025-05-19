@@ -20,6 +20,7 @@
     wl-clipboard
     alsa-utils
     hyprpaper
+    nurl
 
     #kdeconnect
     
