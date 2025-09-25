@@ -22,7 +22,7 @@
    # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Europe/Sofia";
 
   # swap
   swapDevices = [
@@ -141,7 +141,7 @@
 
   # Screenshare + audioshare + audio
   programs.noisetorch.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -156,7 +156,8 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland 
+                     pkgs.kdePackages.xdg-desktop-portal-kde];
   };
 
   # Light stuff

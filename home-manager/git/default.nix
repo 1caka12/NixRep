@@ -5,6 +5,7 @@
     userEmail = "i.matsaliev@student.vu.nl";
     extraConfig = {
       init = {defaultBranch = "main";};
+      core.askPass = "";
     };
   };
 }

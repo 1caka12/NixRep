@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin = {
@@ -10,6 +10,7 @@
         enable = true;
         servers = {
             clangd.enable = true;
+            #pylyzer.enable = true;
             pyright.enable = true;
             nil_ls.enable = true;
             java_language_server.enable = true;
@@ -17,12 +18,18 @@
             gopls.enable = true;
           };
       };
+      vimtex.enable = true;
       sleuth.enable = true;
       dap.enable = true;
       web-devicons.enable = true ;
       markdown-preview.enable = true;
       lualine.enable = true;
-      treesitter.enable = true;
+      treesitter = {
+        enable = true;
+        settings = {
+          highlight.enable = true;
+        };
+      };
       lazygit.enable = true;
       luasnip.enable = true;
       gitsigns.enable = true;
@@ -116,16 +123,12 @@
       smarttab = true;
       cursorline = true;
     };
-#        extraPlugins = [
-#          (pkgs.vimUtils.buildVimPlugin {
-#            name = "nvim-java";
-#            src = pkgs.fetchFromGitHub {
-#              owner = "nvim-java";
-#              repo = "nvim-java";
-#              rev = "905013eb83c58bda992724b3ecbe20f60b58513f";
-#              sha256 = "00bj1yq0q7i8p6zn7jqmi3zmkkhqlc62am6srkcf1nydmvmsr1yx";
-#            };
-#          })
-#        ];
+    extraConfigLua = ''
+      vim.diagnostic.config({
+        virtual_text = true,
+        underline = true,
+        signs = true,
+      })
+    '';
   };
 }
