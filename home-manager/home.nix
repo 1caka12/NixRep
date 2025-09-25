@@ -22,11 +22,13 @@
     hyprpaper
     nurl
     ncdu
+    fastfetch
 
-    #kdeconnect
-    
     # apps
+    distrobox
+    plasma5Packages.kdeconnect-kde
     rofi-wayland
+    kitty
     slack
     eww
     pavucontrol
@@ -53,7 +55,7 @@
     atuin # Shell history
     mpv   # Media player
     espanso # Remembers text templates and text variables
-    stylix
+    
     # fonts
     #nerd-fonts
   ];
@@ -66,17 +68,22 @@
     ./hyprland
     ./eww
     #./eza
-    ./stylix
+    ./catppuccin
+    ./kitty
+    ./fastfetch
   ];
 
   services.ssh-agent.enable = true;
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    functions.cd = "z $argv";
+    interactiveShellInit = "
+      fastfetch
+    ";
+    functions.fish_greeting = "";
+  };
   programs.firefox.enable = true;
   
-  programs.kitty= {
-    enable = true;
-  };
-
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
@@ -85,7 +92,6 @@
   home.shellAliases = {
     cat = "bat";
     ls = "eza";
-    z = "zoxide";
   };
 
   home.sessionVariables = {

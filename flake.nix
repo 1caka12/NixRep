@@ -14,10 +14,11 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+#    stylix = {
+#      url = "github:nix-community/stylix";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
+    catppuccin.url = "github:catppuccin/nix/release-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -25,7 +26,8 @@
     nixpkgs,
     home-manager,
     nixvim,
-    stylix,
+    catppuccin,
+    #stylix,
     nixos-hardware,
     ...
   }: {
@@ -40,10 +42,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.icaka.imports = [
-              ./home-manager/home.nix
-              nixvim.homeModules.nixvim
-              stylix.homeModules.stylix
-            ];
+                ./home-manager/home.nix
+                nixvim.homeModules.nixvim
+                catppuccin.homeModules.catppuccin
+      #          stylix.homeModules.stylix
+              ];
           }
         ];
       };
