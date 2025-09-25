@@ -6,8 +6,6 @@
       aws.disabled = true;
       gcloud.disabled = true;
       line_break.disabled = true;
-#      cmake.format = "'\\[[$symbol($version)]($style)\\]'";
-#      cpp.format = "'\[[$symbol($version(-$name))]($style)\\]'" ;
     };
   };
 }

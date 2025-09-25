@@ -14,7 +14,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -22,6 +25,7 @@
     nixpkgs,
     home-manager,
     nixvim,
+    stylix,
     nixos-hardware,
     ...
   }: {
@@ -38,6 +42,7 @@
             home-manager.users.icaka.imports = [
               ./home-manager/home.nix
               nixvim.homeModules.nixvim
+              stylix.homeModules.stylix
             ];
           }
         ];

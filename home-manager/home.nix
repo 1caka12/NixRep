@@ -15,13 +15,13 @@
     lsof
     neofetch
     yazi
-    zoxide
     lazygit
     networkmanager
     wl-clipboard
     alsa-utils
     hyprpaper
     nurl
+    ncdu
 
     #kdeconnect
     
@@ -46,11 +46,14 @@
     waypaper
     zathura
     zoom-us
-    ncdu
-
     blender
     bitwarden-desktop
     godot
+    bluetuith
+    atuin # Shell history
+    mpv   # Media player
+    espanso # Remembers text templates and text variables
+    stylix
     # fonts
     #nerd-fonts
   ];
@@ -62,17 +65,27 @@
     ./starship
     ./hyprland
     ./eww
-    ./eza
+    #./eza
+    ./stylix
   ];
 
   services.ssh-agent.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
-  programs.kitty.enable = true;
+  
+  programs.kitty= {
+    enable = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
   
   home.shellAliases = {
     cat = "bat";
     ls = "eza";
+    z = "zoxide";
   };
 
   home.sessionVariables = {
@@ -87,6 +100,6 @@
 
   # XWayland behavior
   XWAYLAND_NO_SCALE = "1";
-  EZA_CONFIG_DIR = "$HOME/.config/eza:$PATH";
+  EZA_CONFIG_DIR = "$HOME/.config/eza";
 };
 }
