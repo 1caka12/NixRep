@@ -2,8 +2,10 @@
   programs.kitty = {
     enable = true;
     font = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nerd-fonts.zed-mono;
+      name = "Zed Mono";
+      #package = pkgs.nerd-fonts.jetbrains-mono;
+      #name = "JetBrainsMono Nerd Font";
       size = 13;
     };
     settings = {

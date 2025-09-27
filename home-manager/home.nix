@@ -11,7 +11,6 @@
     fish
     fzf
     glow
-    btop
     lsof
     neofetch
     yazi
@@ -23,6 +22,7 @@
     nurl
     ncdu
     fastfetch
+    pywal # Color scheme generator under ~/.cache/wal
 
     # apps
     distrobox
@@ -71,6 +71,8 @@
     ./catppuccin
     ./kitty
     ./fastfetch
+    ./xdg
+    ./rofi
   ];
 
   services.ssh-agent.enable = true;
@@ -84,9 +86,15 @@
   };
   programs.firefox.enable = true;
   
+  programs.btop = {
+    enable = true;
+    catppuccin.enable = true;
+    catppuccin.flavor = "mocha";
+  };
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
+    options = ["--cmd cd"];
   };
   
   home.shellAliases = {
@@ -95,6 +103,8 @@
   };
 
   home.sessionVariables = {
+  TERMINAL = "kitty";
+
   # GTK apps
   GDK_SCALE = "1";
   GDK_DPI_SCALE = "1.5";

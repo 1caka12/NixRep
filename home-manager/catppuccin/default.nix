@@ -20,6 +20,7 @@
     
     btop = {
       enable = true;
+      flavor = "mocha";
     };
   };
 }
