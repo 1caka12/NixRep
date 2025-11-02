@@ -22,7 +22,7 @@
    # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  time.timeZone = "Europe/Sofia";
+  time.timeZone = "Europe/Amsterdam";
 
   # swap
   swapDevices = [
@@ -55,6 +55,10 @@
 
   # Network Stuff
   networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
+  networking.nftables.enable = true;
+  services.resolved.enable = true;
+  
   
   #hyprland+wayland stuff
   programs.hyprland = {

@@ -10,12 +10,11 @@
     unzip
     fish
     fzf
-    glow
-    lsof
-    neofetch
-    yazi
-    lazygit
-    networkmanager
+    glow # CLI Markdown Reader
+    lsof # list open files
+    yazi # CLI File manager
+    lazygit # Lazy git
+    networkmanager # Something Something Networks
     wl-clipboard
     alsa-utils
     hyprpaper
@@ -25,6 +24,9 @@
     pywal # Color scheme generator under ~/.cache/wal
 
     # apps
+    ardour # DAW
+    kdePackages.kdenlive # video editing
+    
     distrobox
     plasma5Packages.kdeconnect-kde
     rofi-wayland
@@ -39,7 +41,6 @@
     obsidian
     librewolf
     guitarix
-    discord
     thunderbird
     kando
     dust
@@ -73,6 +74,7 @@
     ./fastfetch
     ./xdg
     ./rofi
+    ./nixcord
   ];
 
   services.ssh-agent.enable = true;
@@ -82,7 +84,14 @@
     interactiveShellInit = "
       fastfetch
     ";
-    functions.fish_greeting = "";
+    functions = {
+      fish_greeting = "";
+      fzi = "
+        function fzi
+            zoxide query -i
+        end
+      ";
+    };
   };
   programs.firefox.enable = true;
   
@@ -91,12 +100,21 @@
     catppuccin.enable = true;
     catppuccin.flavor = "mocha";
   };
+
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
     options = ["--cmd cd"];
   };
-  
+ 
+  gtk.enable = true;
+
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors-light"; # must match the actual cursor theme
+    size = 32;
+  };
+
   home.shellAliases = {
     cat = "bat";
     ls = "eza";

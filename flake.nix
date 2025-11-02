@@ -14,20 +14,16 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-#    stylix = {
-#      url = "github:nix-community/stylix";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
     catppuccin.url = "github:catppuccin/nix/release-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-  };
-
+    nixcord.url = "github:kaylorben/nixcord";
+};
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     nixvim,
     catppuccin,
-    #stylix,
+    nixcord,
     nixos-hardware,
     ...
   }: {
@@ -45,7 +41,7 @@
                 ./home-manager/home.nix
                 nixvim.homeModules.nixvim
                 catppuccin.homeModules.catppuccin
-      #          stylix.homeModules.stylix
+                nixcord.homeModules.nixcord
               ];
           }
         ];
